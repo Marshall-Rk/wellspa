@@ -730,6 +730,14 @@ h1, h2, h3, h4, h5,
   width: 50%;
   height: 350px; }
 
+  .bg-img-2 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    border:1px solid #8d8d8d;
+    height: 350px; }
+
 .social_29128 a {
   display: inline-block;
   width: 50px;

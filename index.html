@@ -13,7 +13,11 @@
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 <link rel="stylesheet" href="css/aos.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="icon" type="image/x-icon" href="images/logo.png">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <a href="https://api.whatsapp.com/send?phone=9503182793&text=hiii" class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
@@ -67,6 +71,7 @@
 </div>
 </div>
 </div>
+
 <div class="site-section">
 <div class="container">
 <div class="row align-items-center">
@@ -83,13 +88,15 @@
 </div>
 <div class="col-md-6">
 <div class="d-flex align-items-center">
-<div class="bg-img-1 mr-md-4 mt-md-5" style="background-image: url('images/spa-accessories-dark-background.jpg'); "></div>
-<div class="bg-img-1" style="background-image: url('images/about_2.jpg'); "></div>
+<div class="bg-img-2 mr-md-4 mt-md-5" style="background-image: url('images/logo-2.jpg'); "></div>
+<div class="bg-img-1" style="background-image: url('images/spa-accessories-dark-background.jpg'); "></div>
 </div>
 </div>
 </div>
 </div>
 </div>
+
+
 <div class="site-section" >
 <div class="container">
 <div class="row">
@@ -324,31 +331,64 @@
     </div>
     <div class="row">
     <div class="col-lg-8 mb-5">
-    <form action="#" method="post">
+
+
+
+    <form method="post" id="frmSubmit">
     <div class="form-group row">
     <div class="col-md-6 mb-4 mb-lg-0">
-    <input type="text" class="form-control" placeholder="First name">
+    <input type="text" name="name" class="form-control" placeholder="First name" required>
     </div>
     <div class="col-md-6">
-    <input type="text" class="form-control" placeholder="First name">
+    <input type="text" name="phone" class="form-control" placeholder="Phone" required>
     </div>
     </div>
     <div class="form-group row">
     <div class="col-md-12">
-    <input type="text" class="form-control" placeholder="Email address">
+    <input type="text" name="email" class="form-control" placeholder="Email address" required>
     </div>
     </div>
     <div class="form-group row">
     <div class="col-md-12">
-    <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+    <textarea name="message" id="" class="form-control" placeholder="Write your message." cols="30" rows="10" required></textarea>
     </div>
     </div>
     <div class="form-group row">
     <div class="col-md-6 mr-auto">
-    <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
+        <button type="submit" class="btn btn-block btn-primary text-dark py-3 px-5" id="btnSubmit">SUBMIT</button>
+        <div id="msg"></div>
+
     </div>
     </div>
     </form>
+    <script>
+        jQuery('#frmSubmit').on('submit',function(e){
+          e.preventDefault();
+          jQuery('#msg').html('<i class="fas fa-spinner fa-spin"></i>Please wait...');
+          jQuery('#btnSubmit').attr('disabled',true);
+          jQuery.ajax({
+              url:'https://script.google.com/macros/s/AKfycbynY_mONdZI5X73dE_EhHvpjemBq-JUGN0WPdWkOHn9Bm1dswN1kR6uvwvjF4tnHlkSmw/exec',
+              type:'post',
+              data:jQuery('#frmSubmit').serialize(),
+              success:function(result){
+                  jQuery('#frmSubmit')[0].reset();
+                  jQuery('#msg').html('Thank You');
+                  jQuery('#btnSubmit').attr('disabled',false);
+                  //window.location.href='';
+              }
+          });
+        });
+        </script>
+
+
+
+
+
+
+
+
+
+
     </div>
     <div class="col-lg-4 ml-auto">
     <div class="bg-white p-3 p-md-5">
@@ -375,7 +415,7 @@
 <div class="container">
 <div class="row">
 <div class="col-12 text-center mb-5">
-<h3 class="font-weight-bold serif text-white">WellSpa</h3>
+<h3 class="font-weight-bold serif text-white">Bodhi Tree Spa</h3>
 </div>
 <div class="col-12 text-center mb-5">
 <a href="#" class="">Home</a>
@@ -400,7 +440,7 @@
 <div class="border-top pt-5">
 <p class="small">
 
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
 
 </p>
 </div>
