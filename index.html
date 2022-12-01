@@ -47,11 +47,11 @@
 <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
 <ul class="site-menu main-menu js-clone-nav ml-auto ">
 <li class="active"><a href="index.html" class="nav-link">Home</a></li> 
-<li><a href="about.html" class="nav-link">About</a></li>
-<li><a href="services.html" class="nav-link">Services</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#Services" class="nav-link">Services</a></li>
 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-<li><a href="blog.html" class="nav-link">Blog</a></li>
-<li><a href="contact.html" class="nav-link">Contact</a></li>
+<li><a href="#reviews" class="nav-link">Reviews</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
 </ul>
 </nav>
 </div>
@@ -340,12 +340,12 @@
     <input type="text" name="name" class="form-control" placeholder="First name" required>
     </div>
     <div class="col-md-6">
-    <input type="text" name="phone" class="form-control" placeholder="Phone" required>
+    <input type="number" name="phone" class="form-control" placeholder="Phone" required>
     </div>
     </div>
     <div class="form-group row">
     <div class="col-md-12">
-    <input type="text" name="email" class="form-control" placeholder="Email address" required>
+    <input type="email" name="email" class="form-control" placeholder="Email address" required>
     </div>
     </div>
     <div class="form-group row">
@@ -355,7 +355,7 @@
     </div>
     <div class="form-group row">
     <div class="col-md-6 mr-auto">
-        <button type="submit" class="btn btn-block btn-primary text-dark py-3 px-5" id="btnSubmit">SUBMIT</button>
+        <button type="submit"  class="btn btn-block btn-primary text-dark py-3 px-5" style="color: black;font-weight:300;" id="btnSubmit">SUBMIT</button>
         <div id="msg"></div>
 
     </div>
@@ -364,7 +364,7 @@
     <script>
         jQuery('#frmSubmit').on('submit',function(e){
           e.preventDefault();
-          jQuery('#msg').html('<i class="fas fa-spinner fa-spin"></i>Please wait...');
+          jQuery('#btnSubmit').html('<i class="fas fa-spinner fa-spin"></i> Please wait...');
           jQuery('#btnSubmit').attr('disabled',true);
           jQuery.ajax({
               url:'https://script.google.com/macros/s/AKfycbynY_mONdZI5X73dE_EhHvpjemBq-JUGN0WPdWkOHn9Bm1dswN1kR6uvwvjF4tnHlkSmw/exec',
@@ -372,7 +372,7 @@
               data:jQuery('#frmSubmit').serialize(),
               success:function(result){
                   jQuery('#frmSubmit')[0].reset();
-                  jQuery('#msg').html('Thank You');
+                  jQuery('#btnSubmit').html('Thank You');
                   jQuery('#btnSubmit').attr('disabled',false);
                   //window.location.href='';
               }
